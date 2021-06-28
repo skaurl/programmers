@@ -1,8 +1,12 @@
 def solution(n):
-    a = [0, 1, 1]
-    if n<=2:
-        return a[n]
-    else:
-        for i in range(3,n+1):
-            a.append(a[i-1] + a[i-2])
-    return a[n]%1234567
+    answer = []
+    for i in range(n+1):
+        if i == 0:
+            answer.append(0)
+        elif i == 1:
+            answer.append(1)
+        elif i == 2:
+            answer.append(1)
+        else:
+            answer.append((answer[i-1]+answer[i-2])%1234567)
+    return answer[-1]
