@@ -1,7 +1,5 @@
-def solution(n):
-    total = [int(x) for x in list(str(n))]
-    total = sum(total)
-    if n%total==0:
+def solution(x):
+    if x%sum([int(i) for i in str(x)]) == 0:
         return True
     else:
         return False
