@@ -1,6 +1,8 @@
+import math
+
 def solution(s):
-    if len(s)%2==0:
-        answer = s[len(s)//2-1:len(s)//2+1]
-    else:
-        answer = s[len(s)//2]
-    return answer
+    f = math.floor(len(s)/2)
+    c = math.ceil(len(s)/2)
+    if f == c:
+        return s[f-1:c+1]
+    return s[f:c]
