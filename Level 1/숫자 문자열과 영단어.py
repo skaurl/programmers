@@ -1,8 +1,5 @@
 def solution(s):
-    en = ['zero','one','two','three','four','five','six','seven','eight','nine']
-    answer = ''
-    for idx, num in enumerate(en):
-        if num in s:
-            s = s.replace(num,str(idx))
-        answer = s
-    return int(answer)
+    num_str = ['zero','one','two','three','four','five','six','seven','eight','nine']
+    for i in range(len(num_str)):
+        s = s.replace(num_str[i],str(i))
+    return int(s)
