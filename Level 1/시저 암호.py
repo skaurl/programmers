@@ -1,14 +1,10 @@
 def solution(s, n):
     answer = ''
-    small = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
-         "w", "x", "y", "z"]
-    large = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
-         "W", "X", "Y", "Z"]
     for i in s:
-        if i == " ":
-            answer+=" "
-        elif i in small:
-            answer+=small[(small.index(i)+n)%26]
-        elif i in large:
-            answer+=large[(large.index(i)+n)%26]
+        if i == ' ':
+            answer += ' '
+        elif i == i.lower():
+            answer += chr((ord(i)-97+n)%26+97)
+        elif i == i.upper():
+            answer += chr((ord(i)-65+n)%26+65)
     return answer
