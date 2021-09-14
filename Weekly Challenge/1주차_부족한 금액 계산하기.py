@@ -1,6 +1,5 @@
 def solution(price, money, count):
-    tmp = price * count * (count + 1) // 2
-    if tmp > money:
-        return tmp - money
-    else:
+    result = sum(range(price,price*count+1,price))-money
+    if result <= 0:
         return 0
+    return result
