@@ -2,11 +2,10 @@ def solution(scores):
     answer = ''
     for i in range(len(scores)):
         tmp = []
-        for j in range(len(scores)):
+        for j in range(len(scores[i])):
             tmp.append(scores[j][i])
-        if tmp.count(scores[i][i]) == 1:
-            if max(tmp) == scores[i][i] or min(tmp) == scores[i][i]:
-                del tmp[i]
+        if tmp.count(scores[i][i]) == 1 and (scores[i][i] == min(tmp) or scores[i][i] == max(tmp)):
+            del tmp[i]
         avg = sum(tmp)/len(tmp)
         if avg >= 90:
             answer += 'A'
