@@ -1,9 +1,7 @@
 def solution(n):
-    a = [False,False] + [True]*(n-1)
-    prime = []
+    tmp = [False,False] + [True]*(n-1)
     for i in range(2,n+1):
-        if a[i]:
-            prime.append(i)
+        if tmp[i] == True:
             for j in range(2*i,n+1,i):
-                a[j] = False
-    return len(prime)
+                tmp[j] = False
+    return len([i for i in range(len(tmp)) if tmp[i] == True])
