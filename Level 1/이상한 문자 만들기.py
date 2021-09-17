@@ -1,14 +1,11 @@
 def solution(s):
-    answer = ''
-    count = 0
-    for i in range(len(s)):
-        if s[i] == " ":
-            answer += " "
-            count = 0
-        elif count%2 == 0:
-            answer += s[i].upper()
-            count += 1
-        elif count%2 == 1:
-            answer += s[i].lower()
-            count += 1
-    return answer
+    answer = []
+    for i in s.split(' '):
+        tmp = ''
+        for j in range(len(i)):
+            if j%2 == 0:
+                tmp += i[j].upper()
+            else:
+                tmp += i[j].lower()
+        answer.append(tmp)
+    return ' '.join(answer)
