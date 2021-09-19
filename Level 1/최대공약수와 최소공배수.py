@@ -1,18 +1,11 @@
+def gcd(n, m):
+    n, m = sorted([n, m])
+    while n:
+        n, m = m % n, n
+    return m
+
+def lcm(n, m):
+    return n * m // gcd(n, m)
+
 def solution(n, m):
-    answer = []
-    M = m
-    N = n
-    while True:
-        if M>=N:
-            M = M%N
-            if M == 0:
-                answer.append(N)
-                answer.append(N*(m//N)*(n//N))
-                break
-        else:
-            N = N%M
-            if N == 0:
-                answer.append(M)
-                answer.append(M*(m//M)*(n//M))
-                break
-    return answer
+    return [gcd(n, m), lcm(n, m)]
