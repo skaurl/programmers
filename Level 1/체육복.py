@@ -6,4 +6,4 @@ def solution(n, lost, reserve):
             Lost.remove(i-1)
         elif i+1 in Lost:
             Lost.remove(i+1)
-    return n-len(Lost)
+    return n - len(Lost)
