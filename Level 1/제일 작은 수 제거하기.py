@@ -1,6 +1,5 @@
 def solution(arr):
-    arr.remove(min(arr))
-    if len(arr)==0:
-        return [-1]
-    else:
-        return arr
+    del arr[arr.index(min(arr))]
+    if arr == []:
+        arr = [-1]
+    return arr
