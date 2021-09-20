@@ -1,9 +1,6 @@
 def solution(s):
-    answer = []
-    for i in s.split(' '):
-        try:
-            tmp = i[0].upper() + i[1:].lower()
-        except:
-            tmp = ''
-        answer.append(tmp)
+    answer = s.split(' ')
+    for i in range(len(answer)):
+        if answer[i] != '':
+            answer[i] = answer[i][0].upper() + answer[i][1:].lower()
     return ' '.join(answer)
