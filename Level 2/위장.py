@@ -1,11 +1,7 @@
-import collections
+from collections import defaultdict
 
 def solution(clothes):
-    clothes = [i[1] for i in clothes]
-    clothes = collections.Counter(clothes)
-    answer = 1
-    clothes = dict(clothes)
-    for i in clothes.values():
-        answer*=(i+1)
-    answer-=1
-    return answer
+    tmp_dict = defaultdict(list)
+    for i in clothes:
+        tmp_dict[i[1]].append(i[0])
+    return eval('*'.join([str(len(j)+1) for j in tmp_dict.values()]))-1
