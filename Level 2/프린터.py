@@ -1,16 +1,15 @@
 def solution(priorities, location):
-    L = list(range(len(priorities)))
-    i = 0
-    x = True
-    while x:
-        try:
-            if priorities[i] < max(priorities[i+1:]):
-                priorities = priorities[:i] + priorities[i+1:] + [priorities[i]]
-                L = L[:i] + L[i+1:] + [L[i]]
-            else:
-                i += 1
-        except:
+    Priorities = list(range(len(priorities)))
+    stack = []
+    while True:
+        if len(priorities) == 1:
+            stack.append(Priorities[0])
             break
-    return L.index(location)+1
-
-print(solution([1,2,4,2,3], 2))
+        elif priorities[0] < max(priorities[1:]):
+            priorities = priorities[1:] + [priorities[0]]
+            Priorities = Priorities[1:] + [Priorities[0]]
+        elif priorities[0] >= max(priorities[1:]):
+            stack.append(Priorities[0])
+            priorities = priorities[1:]
+            Priorities = Priorities[1:]
+    return stack.index(location) + 1
