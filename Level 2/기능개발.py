@@ -1,21 +1,14 @@
-def solution(progresses, speeds):
-    answer = []
-    for i in range(len(progresses)):
-        n = 1
-        while progresses[i]+n*speeds[i]<100:
-            n+=1
-        answer.append(n)
+import math
 
+def solution(progresses, speeds):
+    for i in range(len(progresses)):
+        progresses[i] = math.ceil((100-progresses[i])/speeds[i])
+    answer = []
     stack = []
-    A = []
-    for i in range(len(answer)):
-        if len(stack)==0:
-            stack.append(answer[i])
-            A.append(1)
-        elif stack[-1]<answer[i]:
-            A.append(1)
-            stack.append(answer[i])
+    for i in range(len(progresses)):
+        if len(stack) == 0 or stack[-1] < progresses[i]:
+            stack.append(progresses[i])
+            answer.append(1)
         else:
-            A[-1]+=1
-            pass
-    return A
+            answer[-1] += 1
+    return answer
