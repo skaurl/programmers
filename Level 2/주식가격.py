@@ -1,13 +1,8 @@
 def solution(prices):
-    answer = []
+    answer = [0]*len(prices)
     for i in range(len(prices)):
-        a = prices[i]
-        b = 0
-        for j in range(i,len(prices)):
-            if a <= prices[j]:
-                b+=1
-            else:
-                b+=1
+        for j in range(i+1,len(prices)):
+            answer[i] += 1
+            if prices[i] > prices[j]:
                 break
-        answer.append(b-1)
     return answer
