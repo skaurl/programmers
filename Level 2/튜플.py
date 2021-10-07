@@ -1,12 +1,8 @@
-import re
-
 def solution(s):
+    s = [map(int,i.split(',')) for i in sorted(s[2:-2].split("},{"), key = lambda x: len(x))]
     answer = []
-    a = s.split(',{')
-    a.sort(key=len)
-    for j in a:
-        numbers = re.findall("\d+", j)
-        for k in numbers:
-            if int(k) not in answer:
-                answer.append(int(k))
+    for i in s:
+        for j in i:
+            if j not in answer:
+                answer.append(j)
     return answer
