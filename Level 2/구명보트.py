@@ -1,13 +1,10 @@
 def solution(people, limit):
-    people = sorted(people)
-    answer = []
-    i = 0
-    j = len(people)-1
-    while i<=j:
+    answer = 0
+    people.sort()
+    i, j = 0, len(people) - 1
+    while i <= j:
+        answer += 1
         if people[i] + people[j] <= limit:
-            i+=1
-            answer.append(people[i] + people[j])
-        else:
-            answer.append(people[j])
+            i += 1
         j -= 1
-    return len(answer)
+    return answer
